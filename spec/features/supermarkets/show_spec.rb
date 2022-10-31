@@ -1,15 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Supermarket, type: :model do
-  describe 'relationships' do
-    it { should have_many :items }
-  end
-
-  describe 'validations' do
-    it { should validate_presence_of :name}
-    it { should validate_presence_of :location}
-  end
-
+RSpec.describe "Supermarket show page" do
   before(:each) do
     @customer_1 = Customer.create!(name: 'Mark Arum')
     @customer_2 = Customer.create!(name: 'Shelly Winter')
@@ -33,12 +24,19 @@ RSpec.describe Supermarket, type: :model do
     @customer_item_5 = CustomerItem.create!(customer: @customer_3, item: @item_5)
     @customer_item_5 = CustomerItem.create!(customer: @customer_3, item: @item_3)
   end 
+  # Extension
 
-  xdescribe 'instance methods' do
-    describe '#list_customers' do
-      it 'shows a unique list of customers for a supermarket' do
-        expect(@market_1.list_customers).to eq([@customer_1, @customer_2, @customer_3])
-      end
-    end
+  # As a visitor,
+  # When I visit a supermarket's show page,
+  # Then I see a unique list of all customers that have shopped at the supermarket.
+
+  xit 'has a unique list of all customers that have shopped at the supermarket' do
+    visit "/supermarkets/#{@market_1.id}"
+
+    expect(page).to have_content(@customer_1.name, count: 1)
+    expect(page).to have_content(@customer_2.name, count: 1)
+    expect(page).to have_content(@customer_3.name, count: 1)
+
+    expect(page).to_not have_content(@customer_4.name)
   end
 end
