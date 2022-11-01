@@ -34,7 +34,7 @@ RSpec.describe Supermarket, type: :model do
     @customer_item_5 = CustomerItem.create!(customer: @customer_3, item: @item_3)
   end 
 
-  xdescribe 'instance methods' do
+  describe 'instance methods' do
     describe '#list_customers' do
       it 'shows a unique list of customers for a supermarket' do
         expect(@market_1.list_customers).to eq([@customer_1, @customer_2, @customer_3])

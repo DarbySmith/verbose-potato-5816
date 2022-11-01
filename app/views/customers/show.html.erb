@@ -3,13 +3,13 @@
 <h3>Items: </h3>
 <% @customer.items.each do |item| %>
   <section id="item-<%= item.id %>">
-  <h4>Item: <%= item.name %></h4>
-  <p>Price: <%= item.price %></p>
-  <p>Supermarket: <%= item.supermarket.name %></p>
+    <h4>Item: <%= item.name %></h4>
+    <p>Price: <%= item.price %></p>
+    <p>Supermarket: <%= item.supermarket.name %></p>
   </section>
 <% end %>
 
-<%= form_with url: "/customers/#{@customer.id}", method: :patch, local: true do |f| %>
+<%= form_with url: "/customers/#{@customer.id}/items", method: :patch, local: true do |f| %>
   <%= f.label :item_id %>
   <%= f.number_field :item_id, step: 1 %>
   <%= f.submit "Add Item" %>

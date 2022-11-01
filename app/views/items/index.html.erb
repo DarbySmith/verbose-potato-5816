@@ -2,9 +2,9 @@
 
 <% @items.each do |item| %>
   <section id="item-<%= item.id %>">
-  <h3>Item: <%= item.name %></h3>
-  <p>Price:<%= item.price %></p>
-  <p>Supermarket: <%= item.supermarket.name %></p>
-  <p>Number of Customers that Bought: <%= item.customer_count %></p>
+    <h3>Item: <%= item.name %></h3>
+    <p>Price:<%= item.price %></p>
+    <p>Supermarket: <%= item.supermarket.name %></p>
+    <p>Number of Customers that Bought: <%= item.customer_count %></p>
   </section>
 <% end %>

@@ -30,7 +30,7 @@ RSpec.describe "Supermarket show page" do
   # When I visit a supermarket's show page,
   # Then I see a unique list of all customers that have shopped at the supermarket.
 
-  xit 'has a unique list of all customers that have shopped at the supermarket' do
+  it 'has a unique list of all customers that have shopped at the supermarket' do
     visit "/supermarkets/#{@market_1.id}"
 
     expect(page).to have_content(@customer_1.name, count: 1)
